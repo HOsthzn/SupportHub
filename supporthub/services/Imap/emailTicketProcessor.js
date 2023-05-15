@@ -1,4 +1,3 @@
-const config = require('../../appconfig');
 const TickerRepository = require('../../repositories/ticketRepository');
 const TicketCommentRepository = require('../../repositories/ticketCommentRepository');
 const UserRepository = require('../../repositories/userRepository');
