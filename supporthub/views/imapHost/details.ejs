@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2><%= title %></h2>
+        </div>
+        <dl>
+            <dt>User</dt>
+            <dd><%= data.user %></dd>
+            <dt>Inbox</dt>
+            <dd><%= data.inbox %></dd>
+            <dt>Refresh Interval</dt>
+            <dd><%= data.refreshInterval %></dd>
+            <dt>Host</dt>
+            <dd><%= data.host %></dd>
+            <dt>Port</dt>
+            <dd><%= data.port %></dd>
+            <dt>SSL</dt>
+            <dd><%= data.ssl %></dd>
+        </dl>
+        <div class="row">
+            <a class="btn btn-primary col-md-4" href="/imap/index">Back</a>
+            <a class="btn btn-secondary col-md-4" href="/imap/edit/<%= data.id %>">Edit</a>
+            <a class="btn btn-danger col-md-4" href="/imap/delete/<%= data.id %>">Delete</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2><%= title %></h2>
+        </div>
+        <dl>
+            <dt>Ticket Id</dt>
+            <dd><%= data.id %></dd>
+            <dt>Subject</dt>
+            <dd><%= data.title %></dd>
+            <% if(data.projectId){ %>
+                <dt>Project/dt>
+                <dd><%= data.projectId.name %></dd>
+            <% } %>
+            <% if(data.createdBy){ %>
+                <dt>Created By/dt>
+                <dd><%= data.createdBy.name %></dd>
+            <% } %>
+            <% if(data.assignedTo){ %>
+                <dt>Assigned To/dt>
+                <dd><%= data.assignedTo.name %></dd>
+            <% } %>
+            <dt>Status</dt>
+            <dd><%= data.status %></dd>
+            <dt>Date</dt>
+            <dd><%= data.date %></dd>
+        </dl>
+
+        <% if(user){ %>
+            <div class="row">
+                <a class="btn btn-primary col-md-4" href="/ticket/index">Back</a>
+                <a class="btn btn-secondary col-md-4" href="/ticket/edit/<%= data.id %>">Edit</a>
+                <a class="btn btn-danger col-md-4" href="/ticket/delete/<%= data.id %>">Delete</a>
+            </div>
+        <% } %>
+    </div>
+</div>

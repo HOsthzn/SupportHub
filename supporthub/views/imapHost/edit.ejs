@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2><%= title %></h2>
+        </div>
+
+        <% if (error?.length > 0) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form action="/imap/edit" method="post">
+            <input type="hidden" id="id" name="id" value="<%= data.id %>">
+            <div class="form-group">
+                <label for="user" class="form-label">User:</label>
+                <input type="text" name="user" id="user" class="form-control" required value="<%= data.user %>">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="inbox" class="form-label">Inbox:</label>
+                <input type="text" name="inbox" id="inbox" class="form-control" value="<%= data.inbox %>">
+            </div>
+            <div class="form-group">
+                <label for="refreshInterval" class="form-label">Refresh Interval:</label>
+                <input type="number" name="refreshInterval" id="refreshInterval" class="form-control"
+                       value="<%= data.refreshInterval %>">
+            </div>
+            <div class="form-group">
+                <label for="host" class="form-label">Host:</label>
+                <input type="text" name="host" id="host" class="form-control" required value="<%= data.host %>">
+            </div>
+            <div class="form-group">
+                <label for="port" class="form-label">Port:</label>
+                <input type="text" name="port" id="port" class="form-control" required value="<%= data.port %>">
+            </div>
+            <div class="form-group">
+                <label class="form-check-label" for="ssl">SSL:</label>
+                <% if(data.ssl === true){ %>
+                    <input type="checkbox" name="ssl" id="ssl" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" name="ssl" id="ssl" class="form-check-input">
+                <% } %>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-secondary" href="/imap/index">Back</a>
+        </form>
+    </div>
+</div>

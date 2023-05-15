@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2><%= title %></h2>
+        </div>
+
+        <% if (error?.length > 0) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <a class="btn btn-primary" href="/project/create">Add</a>
+        <table>
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(let project of data) { %>
+                <tr>
+                    <td><%= project.clientId.name%></td>
+                    <td><%= project.name %></td>
+                    <td>
+                        <a class="btn btn-secondary" href="/project/edit/<%= project.id %>">Edit</a>
+                        <a class="btn btn-info" href="/project/details/<%= project.id %>">Details</a>
+                        <a class="btn btn-danger" href="/project/delete/<%= project.id %>">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+
+    </div>
+</div>

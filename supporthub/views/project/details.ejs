@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2><%= title %></h2>
+        </div>
+        <dl>
+            <dt>Client</dt>
+            <dd><%= data.clientId.name %></dd>
+            <dt>Name</dt>
+            <dd><%= data.name %></dd>
+        </dl>
+        <div class="row">
+            <a class="btn btn-primary col-md-4" href="/project/index">Back</a>
+            <a class="btn btn-secondary col-md-4" href="/project/edit/<%= data.id %>">Edit</a>
+            <a class="btn btn-danger col-md-4" href="/project/delete/<%= data.id %>">Delete</a>
+        </div>
+    </div>
+</div>
