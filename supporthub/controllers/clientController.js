@@ -1,6 +1,6 @@
 const util = require("util");
 const debug = util.debuglog("clientController");
-const Client = require('../models/Client');
+const Client = require('../models/Organization');
 
 const ClientController = {
     index(req, res) {
@@ -23,7 +23,6 @@ const ClientController = {
                 debug(`\x1b[33m%s\x1b[0m`, err);
                 return res.render('client/index', {title: "Client", error: "Could not find client"});
             });
-
     }
     , create: {
         get(req, res) {
@@ -90,6 +89,9 @@ const ClientController = {
                     return res.render('client/delete', {title: "Delete Client", error: "Could not delete client"})
                 });
         }
+    }
+    , get(req, res) {
+        return res.json(Client.find());
     }
 }
 

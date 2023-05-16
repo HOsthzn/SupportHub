@@ -15,7 +15,7 @@
             <thead>
             <tr>
                 <th>User</th>
-                <th>Inbox</th>
+                <th>Mailbox</th>
                 <th>Refresh Interval</th>
                 <th></th>
             </tr>
@@ -24,7 +24,7 @@
             <% for(let imapHost of data) { %>
                 <tr>
                     <td><%= imapHost.user %></td>
-                    <td><%= imapHost.inbox %></td>
+                    <td><%= imapHost.mailbox %></td>
                     <td><%= imapHost.refreshInterval %></td>
                     <td>
                         <a class="btn btn-secondary" href="/imap/edit/<%= imapHost.id %>">Edit</a>

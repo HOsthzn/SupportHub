@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -7,26 +7,44 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ticket">Tickets</a>
+                <li><a class="nav-link" href="#">Issues</a></li>
+                <li><a class="nav-link" href="#">Dashboards</a></li>
+                <li><a class="nav-link" href="#">Reports</a></li>
+                <li><a class="nav-link" href="#">Projects</a></li>
+                <li><a class="nav-link" href="#">Knowledge Base</a></li>
+                <li><a class="nav-link" href="#">Timesheet</a></li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" id="adminMenu">
+                        <i class="bi bi-nut-fill"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="adminMenu">
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Access Management
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                <li><a class="dropdown-item" href="#">Users</a></li>
+                                <li><a class="dropdown-item" href="#">Organizations</a></li>
+                                <li><a class="dropdown-item" href="#">Groups</a></li>
+                                <li><a class="dropdown-item" href="#">Roles</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Integrations
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                <li><a class="dropdown-item" href="#">Mailbox Integration</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
 
-                <% if(user) { if(user.role.includes( "administrator" )){ %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Administrator
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/client">Clients</a></li>
-                            <li><a class="dropdown-item" href="/project">Projects</a></li>
-                            <li><a class="dropdown-item" href="/imap">IMap</a></li>
-                        </ul>
-                    </li>
-                <% } } %>
             </ul>
 
             <%- include('_loginpartial'); %>

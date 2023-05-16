@@ -1,28 +1,32 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    role: {
-        type: Array,
-        required: true,
-        default: "guest"
-        , ref: 'UserRoles'
-    },
-    date: {
-        type: Date,
-        default: Date.now
+    general:{
+        name: {
+            type: String,
+            required: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    }
+    ,groups:{
+        type: Array
+        ,ref: "group"
+    }
+    , roles:{
+        type: Array
+        ,ref: "role"
     }
 });
 

@@ -13,7 +13,7 @@
         <form action="/project/edit" method="post">
             <input type="hidden" id="id" name="id" value="<%= data.id %>">
             <div class="form-group">
-                <label class="form-label" for="clientId">Client:</label>
+                <label class="form-label" for="clientId">Organization:</label>
                 <select id="clientId" name="clientId" class="form-select">
                     <%listClient.forEach(client => { %>
                         <option value="<%= client.id %>" <%= client.id == data.clientId ? 'selected' : '' %>><%= client.name %></option>

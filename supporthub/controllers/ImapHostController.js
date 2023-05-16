@@ -1,7 +1,7 @@
 const util = require("util");
 const debug = util.debuglog("ImapHostController");
-const ImapCronManager = require('../services/Imap/imapCron');
-const ImapHost = require('../models/IMAPHost');
+const ImapCronManager = require('../workers/Imap/imapCron');
+const ImapHost = require('../models/MailboxIntegration');
 
 const ImapHostController = {
     index(req, res) {
@@ -83,6 +83,7 @@ const ImapHostController = {
                 })
                 .catch((err) => {
                     debug(`\x1b[33m%s\x1b[0m`, err);
+                    console.log(err)
                     return res.render('imapHost/edit', {
                         title: "Edit IMAP Host",
                         error: "Could not update IMAP host"

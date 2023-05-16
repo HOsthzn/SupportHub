@@ -1,4 +1,4 @@
-const crypt = require('../crypt');
+const crypt = require('../../services/crypt');
 const Imap = require('node-imap');
 const simpleParser = require('mailparser').simpleParser;
 const EmailTicketProcessor = require('./emailTicketProcessor');
@@ -58,17 +58,19 @@ class IMAP {
 
                     f.on("message", (msg, seqno) => {
                         msg.on('body', async (stream, info) => {
-                            const parser = await simpleParser(stream);
-                            let email = {
-                                from: parser.from.value[0],
-                                to: parser.to.value,
-                                subject: parser.subject,
-                                date: parser.date,
-                                text: parser.text
-                            }
+                            if(stream){
+                                const parser = await simpleParser(stream);
+                                let email = {
+                                    from: parser.from.value[0],
+                                    to: parser.to.value,
+                                    subject: parser.subject,
+                                    date: parser.date,
+                                    text: parser.text
+                                }
 
-                            const processEmailTicket = new EmailTicketProcessor(email);
-                            await processEmailTicket.createTicket();
+                                const processEmailTicket = new EmailTicketProcessor(email);
+                                await processEmailTicket.createTicket();
+                            }
                         });
                         msg.once("attributes", (attrs) => {
                             this.imap.seq.addFlags(attrs.uid, 'Seen', function (err) {

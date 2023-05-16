@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Bootstrap" pattern="file:public/fonts/bootstrap-icons.woff||file:public/fonts/bootstrap-icons.woff2||file:public/bootstrap-icons.css||file:public/bootstrap-icons.json||file:public/bootstrap-icons.scss||file:public/bootstrap.css||file:public/bootstrap.js||file:public/bootstrap.min.css||file:public/bootstrap.min.css.map||file:public/bootstrap.min.js||file:public/bootstrap.min.js.map" />
+</component>

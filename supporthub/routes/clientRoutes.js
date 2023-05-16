@@ -20,4 +20,7 @@ router.post('/edit', protect.protectRoute, ClientController.edit.post);
 router.get('/delete/:id', protect.protectRoute, ClientController.delete.get);
 router.post('/delete', protect.protectRoute, ClientController.delete.post);
 
+//get all clients
+router.get('/all', protect.protectRoute, ClientController.get);
+
 module.exports = router;

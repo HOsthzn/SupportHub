@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="popper" pattern="file:public/popper.js||file:public/popper.js.map||file:public/popper.min.js||file:public/popper.min.js.map" />
+</component>

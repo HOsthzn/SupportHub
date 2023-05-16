@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
-    clientId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Client',
-        required: true,
-    }
-    , name: {
+    name:{
         type: String,
         required: true,
     }
+    , Code:{
+        type: String,
+        maxlength: 5,
+    }
+    , description:{
+        type: String,
+    }
 });
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.model('project', projectSchema);
 
 module.exports = Project;

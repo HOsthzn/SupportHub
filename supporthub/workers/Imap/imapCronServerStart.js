@@ -1,4 +1,4 @@
-const IMAPHostSchema = require( "../../models/IMAPHost" );
+const IMAPHostSchema = require( "../../models/MailboxIntegration" );
 const ImapCronManager = require( "./imapCron" );
 
 async function startCronTasks() {

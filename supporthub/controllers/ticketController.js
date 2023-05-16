@@ -39,7 +39,7 @@ const TicketController = {
             return res.render('ticket/create', {
                 title: "Create Ticket"
                 , listProject: await Project.find().exec()
-                , listUser: await User.find().select("-createdBy.password -assignedTo.password").exec()
+                , listUser: await User.find().select("-password").exec()
             });
         }
         , post(req, res) {

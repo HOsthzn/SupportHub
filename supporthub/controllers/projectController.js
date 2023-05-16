@@ -1,11 +1,11 @@
 const util = require("util");
 const debug = util.debuglog("projectController");
 const Project = require('../models/Project');
-const Client = require('../models/Client');
+const Client = require('../models/Organization');
 
 const ProjectController = {
     index(req, res) {
-        Project.find().populate('clientId')
+        Project.find().populate('clientId', "users")
             .then(async (projects) => {
                 return res.render('project/index', {
                     title: "Project",
@@ -30,7 +30,9 @@ const ProjectController = {
     }
     , create: {
         async get(req, res) {
-            return res.render('project/create', {title: "Create Project", listClient: await Client.find().exec()});
+            return res.render('project/create', {title: "Create Project"
+                , listClient: await Client.find().exec()}
+            );
         }
         , post(req, res) {
             const {clientId, name} = req.body;

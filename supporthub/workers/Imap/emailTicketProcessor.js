@@ -1,7 +1,7 @@
-const TickerRepository = require('../../repositories/ticketRepository');
-const TicketCommentRepository = require('../../repositories/ticketCommentRepository');
-const UserRepository = require('../../repositories/userRepository');
-const ImapHostRepository = require('../../repositories/imapHostRepository');
+const TickerRepository = require('../../Repositories/ticketRepository');
+const TicketCommentRepository = require('../../Repositories/ticketCommentRepository');
+const UserRepository = require('../../Repositories/userRepository');
+const ImapHostRepository = require('../../Repositories/imapHostRepository');
 const emailService = require('../../services/email');
 const path = require('path');
 

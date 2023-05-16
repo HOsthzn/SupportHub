@@ -97,5 +97,5 @@ app.use( '/ticket', require( './routes/ticketRoutes' ) );
 app.listen( 3000, () => {
 	console.log( 'Server started: http://localhost:3000/' );
 	// Start the IMAP cron services
-	require( "./services/Imap/imapCronServerStart" )();
+	require( "./workers/Imap/imapCronServerStart" )();
 } );

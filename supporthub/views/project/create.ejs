@@ -12,9 +12,9 @@
 
         <form action="/project/create" method="post">
             <div class="form-group">
-                <label class="form-label" for="clientId">Client:</label>
+                <label class="form-label" for="clientId">Organization:</label>
                 <select id="clientId" name="clientId" class="form-select">
-                    <option value="-1" selected disabled>Select Client</option>
+                    <option value="-1" selected disabled>Select Organization</option>
                     <% listClient.forEach(client => { %>
                         <option value="<%= client.id %>"><%= client.name %></option>
                     <% }) %>
