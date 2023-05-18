@@ -1,0 +1,13 @@
+<div style="color: red;">
+    <% if(error){ %>
+        <% if( error instanceof Array){ %>
+            <% for(let e of error){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= e %>
+                </div>
+        <% } }else{ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+    <% }} %>
+</div>

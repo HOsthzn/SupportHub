@@ -3,7 +3,7 @@ const lib = {
         if (req.isAuthenticated()) {
             return next();
         }
-        res.redirect('account/login');
+        res.redirect('/account/login');
     },
     allowIf: (req, res, next) => {
         if (!req.isAuthenticated()) {

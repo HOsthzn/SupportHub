@@ -6,9 +6,9 @@ const roleSchema = new mongoose.Schema({
             type: String,
             required: true,
         }
-        , Code: {
+        , code: {
             type: String,
-            maxlength: 5,
+            maxlength: 10,
         }
         , description: {
             type: String,
@@ -140,6 +140,10 @@ const roleSchema = new mongoose.Schema({
                 type: Boolean,
                 default: false,
             }
+            , ViewWatchers: {
+                type: Boolean,
+                default: false,
+            }
         }
         , organization: {
             createOrganization: {
@@ -194,41 +198,41 @@ const roleSchema = new mongoose.Schema({
                 type: Boolean,
                 default: false,
             }
-            , role: {
-                manageRole: {
-                    type: Boolean,
-                    default: false,
-                }
-                , readRole: {
-                    type: Boolean,
-                    default: false,
-                }
+        }
+        , role: {
+            manageRole: {
+                type: Boolean,
+                default: false,
             }
-            , user: {
-                createUser: {
-                    type: Boolean,
-                    default: false,
-                }
-                , deleteUser: {
-                    type: Boolean,
-                    default: false,
-                }
-                , readUserBasic: {
-                    type: Boolean,
-                    default: false,
-                }
-                , readUserFull: {
-                    type: Boolean,
-                    default: false,
-                }
-                , updateSelf: {
-                    type: Boolean,
-                    default: false,
-                }
-                , updateUser: {
-                    type: Boolean,
-                    default: false,
-                }
+            , readRole: {
+                type: Boolean,
+                default: false,
+            }
+        }
+        , user: {
+            createUser: {
+                type: Boolean,
+                default: false,
+            }
+            , deleteUser: {
+                type: Boolean,
+                default: false,
+            }
+            , readUserBasic: {
+                type: Boolean,
+                default: false,
+            }
+            , readUserFull: {
+                type: Boolean,
+                default: false,
+            }
+            , updateSelf: {
+                type: Boolean,
+                default: false,
+            }
+            , updateUser: {
+                type: Boolean,
+                default: false,
             }
         }
     }

@@ -1,0 +1,72 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/accessManagement/roles/index">Organizations</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= data.settings.name %></li>
+    </ol>
+</nav>
+<ul class="nav nav-tabs" id="detailTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
+                type="button" role="tab" aria-controls="settings-tab-pane" aria-selected="true">Settings
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="permissions-tab" data-bs-toggle="tab" data-bs-target="#permissions-tab-pane"
+                type="button" role="tab" aria-controls="permissions-tab-pane" aria-selected="false">Permissions
+        </button>
+    </li>
+</ul>
+<div class="tab-content" id="detailTabsContent">
+    <div class="tab-pane fade show active" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab"
+         tabindex="0">
+        <form action="/accessManagement/roles/update" method="post">
+            <input type="hidden" id="id" name="id" value="<%= data.id %>">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" required
+                       value="<%= data.settings.name %>">
+            </div>
+
+            <div class="form-group">
+                <label for="code">Code</label>
+                <input type="text" name="code" id="code" class="form-control" required
+                       value="<%= data.settings.code %>">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" name="description" id="description"
+                          class="form-control"><%= data.settings.description %></textarea>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save2"></i>Save</button>
+                <!--                <button class="btn btn-secondary"><i class="bi bi-x-lg"></i>Cancel</button>-->
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="permissions-tab-pane" role="tabpanel" aria-labelledby="permissions-tab" tabindex="0">
+        <form action="/accessManagement/roles/updatePermissions" method="post">
+            <input type="hidden" id="id" name="id" value="<%= data.id %>">
+            <% for(let keyGroup in data.permissions){ %>
+                <% if(data.permissions.hasOwnProperty(keyGroup)){ %>
+                    <section>
+                        <h6><%= keyGroup %></h6>
+                        <% for(let key in data.permissions[keyGroup]){ %>
+                            <% if(data.permissions[keyGroup].hasOwnProperty(key)){ %>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="<%= keyGroup %>.<%= key %>"
+                                           name="<%= keyGroup %>.<%= key %>" <%- data.permissions[keyGroup][key] ? 'checked' : '' %> >
+                                    <label class="form-check-label" for="<%= key %>"><%= key %></label>
+                                </div>
+                        <% }} %>
+                    </section>
+            <% }} %>
+
+            <div class="row">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save2"></i>Save</button>
+                <!--                <button class="btn btn-secondary"><i class="bi bi-x-lg"></i>Cancel</button>-->
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,44 @@
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<ul class="navbar-nav d-flex">
     <% if(user){ %>
-        <li class="nav-item">
-            <a class="nav-link" href="/account/profile"><%= user.name %></a>
+
+        <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false" id="adminMenu">
+                <i class="bi bi-nut-fill"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="adminMenu">
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Access Management
+                    </a>
+                    <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                        <li><a class="dropdown-item" href="/accessManagement/users/index">Users</a></li>
+                        <li><a class="dropdown-item" href="/accessManagement/organizations/index">Organizations</a></li>
+                        <li><a class="dropdown-item" href="/accessManagement/groups/index">Groups</a></li>
+                        <li><a class="dropdown-item" href="/accessManagement/roles/index">Roles</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Integrations
+                    </a>
+                    <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                        <li><a class="dropdown-item" href="#">Mailbox Integration</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false" id="userMenu">
+                <%= user.general.name %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userMenu">
+                <li><a class="dropdown-item" href="/accessManagement/users/details/<%= user.id %>">Profile</a></li>
+            </ul>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/account/logout">Logout</a>

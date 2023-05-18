@@ -20,8 +20,4 @@ router.post('/forgotPassword', accountController.forgotPassword.post);
 router.get('/resetPassword/:token', accountController.forgotPassword.resetPassword.get);
 router.post('/resetPassword/', accountController.forgotPassword.resetPassword.post);
 
-//profile
-router.get('/profile', protect.protectRoute, accountController.profile.get);
-router.post('/profile', protect.protectRoute, accountController.profile.post);
-
 module.exports = router;

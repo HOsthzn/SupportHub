@@ -12,10 +12,27 @@ const groupSchema = new mongoose.Schema({
         , logo: {
             type: String,
         }
+        , autoJoin: {
+            val: {
+                type: Boolean,
+                default: false,
+            }
+            , autoJoinDomains: {
+                type: Array,
+            }
+        }
+    }
+    , parent: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'group'
     }
     , roles: {
         type: Array,
         ref: 'role'
+    }
+    , members: {
+        type: Array,
+        ref: 'user'
     }
 });
 

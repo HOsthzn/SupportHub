@@ -17,11 +17,11 @@ const lib = {
                 async (email, password, done) => {
                     try {
                         // Check customer
-                        const user = await User.findOne({email: email.toLowerCase()});
-                        if (!user) {
+                        const user = await User.findOne({"general.email": email.toLowerCase()});
+                        if (!user.general) {
                             return done(null, false, {message: 'Incorrect username/email.'});
                         }
-                        bcrypt.compare(password, user.password, (err, res) => {
+                        bcrypt.compare(password, user.general.password, (err, res) => {
                             if (res) {
                                 return done(null, user);
                             } else {
